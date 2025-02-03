@@ -46,7 +46,7 @@ if [ ! -e ${OUTDIR}/linux-stable/arch/${ARCH}/boot/Image ]; then
    
    make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} modules
    
-   cp ${OUTDIR}/linux-stable/arch/${ARCH}/boot/Image ${OUTDIR}/
+   cp ${OUTDIR}/linux-stable/arch/${ARCH}/boot/Image ${OUTDIR}
    #make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} INSTALL_MOD_PATH=${OUTDIR}/modules modules_install     
 fi
 
