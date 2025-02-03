@@ -14,6 +14,8 @@ FINDER_APP_DIR=$(realpath $(dirname $0))
 ARCH=arm64
 CROSS_COMPILE=aarch64-none-linux-gnu-
 
+
+
 if [ $# -lt 1 ]
 then
 	echo "Using default directory ${OUTDIR} for output"
@@ -100,11 +102,11 @@ ${CROSS_COMPILE}readelf -a bin/busybox | grep "Shared library"
 
 # TODO: Add library dependencies to rootfs
 
-cp /home/shrilock/Buildroot_course/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib/ld-linux-aarch64.so.1 ${OUTDIR}/rootfs/lib/
+cp ${FINDER_APP_DIR}/libs/ld-linux-aarch64.so.1 ${OUTDIR}/rootfs/lib/
 
-cp /home/shrilock/Buildroot_course/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64/libc.so.6 ${OUTDIR}/rootfs/lib64/
-cp /home/shrilock/Buildroot_course/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64/libm.so.6 ${OUTDIR}/rootfs/lib64/
-cp /home/shrilock/Buildroot_course/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64/libresolv.so.2 ${OUTDIR}/rootfs/lib64/
+cp ${FINDER_APP_DIR}/libs/libc.so.6 ${OUTDIR}/rootfs/lib64/
+cp ${FINDER_APP_DIR}/libs/libm.so.6 ${OUTDIR}/rootfs/lib64/
+cp ${FINDER_APP_DIR}/libs/libresolv.so.2 ${OUTDIR}/rootfs/lib64/
 
 
 # TODO: Make device nodes
